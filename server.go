@@ -7,5 +7,9 @@ func main() {
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.SendString("Hello, World!")
 	})
+
+	app.Get("/value/:id", func(c *fiber.Ctx) error {
+		return c.SendString("params is " + c.Params("id"))
+	})
 	app.Listen(":3000")
 }
